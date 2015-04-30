@@ -1,14 +1,14 @@
 package com.example.user01.myapplication.model.service;
 
 import com.example.user01.myapplication.model.pojo.BusLine;
-import com.example.user01.myapplication.model.pojo.BusStops;
-import com.example.user01.myapplication.model.pojo.LineDepartures;
+import com.example.user01.myapplication.model.pojo.BusStop;
+import com.example.user01.myapplication.model.pojo.LineDeparture;
 import com.example.user01.myapplication.model.pojo.internal.BodyParameters;
 
 import java.util.List;
 
 public class BusLineServiceFacade {
-private static final String mask = "%%%s%%";
+private static final String SEARCH_MASK = "%%%s%%";
 
     BusLineRemoteService remoteService;
 
@@ -17,17 +17,17 @@ private static final String mask = "%%%s%%";
     }
 
     public List<BusLine> getBusLine(String streetName) {
-        BodyParameters params = new BodyParameters().putParam("stopName", String.format(mask, streetName));
+        BodyParameters params = new BodyParameters().putParam("stopName", String.format(SEARCH_MASK, streetName));
         return remoteService.getBusLine(params).getRows();
     }
 
-    public List<BusStops> getBusStops(Integer routeId) {
-        BodyParameters params = new BodyParameters().putParam("routeId", String.format(mask, routeId));
+    public List<BusStop> getBusStops(Integer routeId) {
+        BodyParameters params = new BodyParameters().putParam("routeId", routeId);
         return remoteService.findStopsByRouteId(params).getRows();
     }
 
-    public List<LineDepartures> getLineDepartures(Integer routeId){
-        BodyParameters params = new BodyParameters().putParam("routeId", String.format(mask, routeId));
+    public List<LineDeparture> getLineDepartures(Integer routeId){
+        BodyParameters params = new BodyParameters().putParam("routeId", routeId);
         return remoteService.findDeparturesByRouteId(params).getRows();
     }
 

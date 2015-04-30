@@ -11,7 +11,9 @@
         android:text="irineu"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="wrap_content"

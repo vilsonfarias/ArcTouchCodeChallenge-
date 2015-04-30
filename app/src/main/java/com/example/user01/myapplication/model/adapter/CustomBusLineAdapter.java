@@ -27,10 +27,10 @@ public class CustomBusLineAdapter extends ArrayAdapter<BusLine> {
         }
 
         TextView shortNameField = (TextView) convertView.findViewById(R.id.shortName);
-        TextView longNameField = (TextView) convertView.findViewById(R.id.longName);
-
         shortNameField.setText(busLine.getLongName());
-        longNameField.setText(busLine.getShortName());
+
+        TextView longNameField = (TextView) convertView.findViewById(R.id.longName);
+        longNameField.setText("Bus line " + busLine.getShortName());
 
         return convertView;
     }

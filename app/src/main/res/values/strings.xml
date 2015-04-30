@@ -8,4 +8,7 @@
     <string name="title_route_list">Routes</string>
     <string name="title_route_detail">Route Detail</string>
     <string name="search">Search</string>
+    <string name="title_activity_detail">Route details</string>
+    <string name="title_activity_bus_stop_list">bus_stop_list</string>
+    <string name="title_activity_line_departures_list">line_departures_list</string>
 </resources>

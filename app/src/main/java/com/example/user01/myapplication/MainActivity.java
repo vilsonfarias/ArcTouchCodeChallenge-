@@ -1,11 +1,13 @@
 package com.example.user01.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -15,7 +17,6 @@ import com.example.user01.myapplication.model.pojo.BusLine;
 import com.example.user01.myapplication.model.adapter.CustomBusLineAdapter;
 
 import java.util.List;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -56,18 +57,34 @@ public class MainActivity extends ActionBarActivity {
 
         BusLineServiceFacade service = new BusLineServiceFacade();
 
-        List<BusLine> result = service.getBusLine(streetName);
-        loadBusLineListView(result);
+        List<BusLine> busLines = service.getBusLine(streetName);
+        loadBusLineListView(busLines);
 
-        if (result.size() > 0)
-            Toast.makeText(MainActivity.this, result.size() + " bus lines found", Toast.LENGTH_SHORT).show();
+        if (busLines.size() > 0)
+            Toast.makeText(MainActivity.this, busLines.size() + " bus lines found", Toast.LENGTH_SHORT).show();
 
         return true;
     }
 
     private void loadBusLineListView(List<BusLine> lines) {
-        CustomBusLineAdapter adapter = new CustomBusLineAdapter(this, lines);
+        final CustomBusLineAdapter adapter = new CustomBusLineAdapter(this, lines);
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                BusLine busLine = (BusLine) adapter.getItem(position);
+                Toast.makeText(getApplicationContext(), "Searching " +	busLine.getLongName(), Toast.LENGTH_SHORT).show();
+                showDetailActivity(busLine);
+            }
+        });
+    }
+
+    private void showDetailActivity(BusLine busLine) {
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(DetailActivity.BUS_LINE_ID, busLine.getId());
+        intent.putExtra(DetailActivity.BUS_LINE_SHORTNAME, busLine.getShortName());
+        intent.putExtra(DetailActivity.BUS_LINE_LONGNAME, busLine.getLongName());
+        startActivity(intent);
     }
 }

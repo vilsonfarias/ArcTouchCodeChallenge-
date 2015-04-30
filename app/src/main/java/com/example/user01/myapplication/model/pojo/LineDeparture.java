@@ -1,6 +1,6 @@
 package com.example.user01.myapplication.model.pojo;
 
-public class LineDepartures {
+public class LineDeparture {
 	private Integer id;
 	private String calendar;
 	private String time;

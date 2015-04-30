@@ -22,6 +22,14 @@
             android:name=".RouteListActivity"
             android:label="@string/title_route_list" >
         </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.user01.myapplication.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

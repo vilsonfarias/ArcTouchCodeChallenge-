@@ -1,6 +1,6 @@
 package com.example.user01.myapplication.model.pojo;
 
-public class BusStops {
+public class BusStop {
     Integer id;
     Integer routeId;
     String name;
