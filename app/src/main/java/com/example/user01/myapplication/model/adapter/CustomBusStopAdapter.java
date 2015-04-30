@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.user01.myapplication.R;
-import com.example.user01.myapplication.model.pojo.BusLine;
 import com.example.user01.myapplication.model.pojo.BusStop;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class CustomBusStopAdapter extends ArrayAdapter<BusStop> {
         BusStop busStop = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.bus_stop_list, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.bus_detail_list, parent, false);
         }
 
         TextView busStopText = (TextView) convertView.findViewById(R.id.busStop);

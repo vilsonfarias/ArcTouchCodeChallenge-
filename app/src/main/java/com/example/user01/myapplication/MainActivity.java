@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.user01.myapplication.model.service.BusLineServiceFacade;
+import com.example.user01.myapplication.model.service.BusLineServiceAdapter;
 import com.example.user01.myapplication.model.pojo.BusLine;
 import com.example.user01.myapplication.model.adapter.CustomBusLineAdapter;
 
@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
         EditText editText = (EditText) findViewById(R.id.editText);
         String streetName = editText.getText().toString();
 
-        BusLineServiceFacade service = new BusLineServiceFacade();
+        BusLineServiceAdapter service = new BusLineServiceAdapter();
 
         List<BusLine> busLines = service.getBusLine(streetName);
         loadBusLineListView(busLines);

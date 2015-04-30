@@ -23,7 +23,7 @@ public class CustomLineDeparturesAdapter extends ArrayAdapter<LineDeparture> {
         LineDeparture lineDeparture = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.bus_stop_list, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.bus_detail_list, parent, false);
         }
 
         TextView lineDepartureText = (TextView) convertView.findViewById(R.id.busStop);

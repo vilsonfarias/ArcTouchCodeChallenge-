@@ -23,7 +23,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Stops"
         android:id="@+id/textView"
-        android:paddingTop="15dp" />
+        android:paddingTop="15dp"
+        android:textStyle="bold" />
 
     <ListView
         android:layout_width="match_parent"
@@ -36,10 +37,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Departures"
         android:id="@+id/textView2"
-        android:paddingTop="15dp" />
+        android:paddingTop="15dp"
+        android:textStyle="bold" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/listViewLineDepartures" />
+
 </LinearLayout>

@@ -12,7 +12,7 @@ import com.example.user01.myapplication.model.adapter.CustomBusStopAdapter;
 import com.example.user01.myapplication.model.adapter.CustomLineDeparturesAdapter;
 import com.example.user01.myapplication.model.pojo.BusStop;
 import com.example.user01.myapplication.model.pojo.LineDeparture;
-import com.example.user01.myapplication.model.service.BusLineServiceFacade;
+import com.example.user01.myapplication.model.service.BusLineServiceAdapter;
 
 import java.util.List;
 
@@ -66,7 +66,7 @@ public class DetailActivity extends ActionBarActivity {
     }
 
     private void loadRemoteData() {
-        BusLineServiceFacade service = new BusLineServiceFacade();
+        BusLineServiceAdapter service = new BusLineServiceAdapter();
 
         List<BusStop> busStops = service.getBusStops(busLineId);
         loadBusStopsListView(busStops);
