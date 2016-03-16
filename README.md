@@ -1,4 +1,4 @@
-# ArcTouchCodeChallenge 
+# Rest-tests
 
 Still missing:
 -back button
